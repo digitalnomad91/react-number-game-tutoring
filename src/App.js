@@ -124,13 +124,11 @@ function App() {
             <h1 className="mb-4">Odd Numbers ({totalOddClicks} clicks)</h1>
             <div>
               {odds.map((i, index) => (
-                <span>
                     <IntButton
                     key={i}
                     index={i}
                     clickIntBtn={clickIntBtn}
                     />
-                </span>
               ))}
             </div>
         </div>
@@ -138,13 +136,11 @@ function App() {
             <h1 className="mb-4">Even Numbers ({totalEvenClicks} clicks)</h1>
             <div>
               {evens.map((i, index) => (
-                  <span>
                       <IntButton
                       key={i}
                       index={i}
                       clickIntBtn={clickIntBtn}
                       />
-                  </span>
               ))}
             </div>
         </div>
