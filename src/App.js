@@ -55,6 +55,7 @@ function App() {
       setnextIntToClick(nextIntToClick+1);
       //if correct value is last integer then the game is won
       if(clickedInt === (ints.length)) {
+        console.log("end game");
         endGame();
       }
     } else { //incorrect button clicked, shuffle that column
