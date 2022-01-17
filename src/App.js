@@ -43,6 +43,9 @@ function App() {
     if(clickedInt % 2 === 0) setTotalEvenClicks(totalEvenClicks+1); //update even column click count
     if(clickedInt % 2 !== 0) setTotalOddClicks(totalOddClicks+1); //update odd column click count
 
+    //temporarily disable the other buttons to prevent a race condition bug related to the way shuffleInts is wrapped in useCallBack (due to another race condition with react's render tick);
+    document.querySelectorAll(".oddInt, .evenInt").forEach(btn => btn.disabled = true );
+
     //first button clicked start timer
     if(clickedInt === 1) startTimer();
     
@@ -56,8 +59,15 @@ function App() {
       }
     } else { //incorrect button clicked, shuffle that column
       setGameStatus("Incorrect");
-      //(clickedInt % 2 === 0 ? shuffleInts(evens) : shuffleInts(odds)); //shuffle numbers in clicked column
+      (clickedInt % 2 === 0 ? shuffleInts(evens) : shuffleInts(odds)); //shuffle numbers in clicked column
     }
+
+    setTimeout(function() {
+      //re-enable the buttons after giving 500ms for the shuffling & react to re-render things
+      document.querySelectorAll(".oddInt, .evenInt").forEach(btn => btn.disabled = false );
+    }, 500);
+
+
   }
   
   /* Start Timer interval  */
