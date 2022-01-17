@@ -149,6 +149,7 @@ function App() {
             </div>
         </div>
         <GameInfo
+            key="gameInfo"
             resetGame={resetGame}
             gameStatus={gameStatus}
             elapsedTime={elapsedTime}
