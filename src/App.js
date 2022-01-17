@@ -56,7 +56,7 @@ function App() {
       }
     } else { //incorrect button clicked, shuffle that column
       setGameStatus("Incorrect");
-      (clickedInt % 2 === 0 ? shuffleInts(evens) : shuffleInts(odds)); //shuffle numbers in clicked column
+      //(clickedInt % 2 === 0 ? shuffleInts(evens) : shuffleInts(odds)); //shuffle numbers in clicked column
     }
   }
   
